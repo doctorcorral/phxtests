@@ -9,4 +9,10 @@ defmodule Vocial.Votes.Poll do
     timestamps()
   end
 
+  def changeset(%Poll{}=poll, attrs) do
+    poll
+    |> cast(attrs, [:title])
+    |> validate_required([:title])
+  end
+
 end
