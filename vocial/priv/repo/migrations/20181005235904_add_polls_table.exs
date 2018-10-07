@@ -2,11 +2,8 @@ defmodule Vocial.Repo.Migrations.AddPollsTable do
   use Ecto.Migration
 
   def change do
-    create table("weather") do
-      add :city,    :string, size: 40
-      add :temp_lo, :integer
-      add :temp_hi, :integer
-      add :prcp,    :float
+    create table("polls") do
+      add :title, :string
 
       timestamps()
     end
