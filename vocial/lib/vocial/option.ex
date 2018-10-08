@@ -9,6 +9,13 @@ defmodule Vocial.Votes.Option do
     field :votes, :integer, default: 0
 
     belongs_to :poll, Poll
+    timestamps()
+  end
+
+  def changeset(%Option{}=option, attrs) do
+    option
+    |> cast(attrs, [:title, :votes, :poll_id])
+    |> validate_required([:title, :votes, :poll_id])
   end
 
 end
