@@ -4,17 +4,11 @@ defmodule VocialWeb.PollController do
 
   @spec index(any(), any()) :: none()
   def index(conn, params) do
-    poll = %{
-      title: "Primer poll bergas",
-      options: [
-        {"Choice 1", 0},
-        {"Choice 2", 5},
-        {"Choice 3", 2}
-      ]
-    }
+    polls = Vocial.Votes.list_polls()
+
     conn
     |> put_layout(:special)
-    |> render("index.html", poll: poll)
+    |> render("index.html", polls: polls)
   end
 
 end
