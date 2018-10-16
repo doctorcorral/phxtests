@@ -25,4 +25,10 @@ defmodule Vocial.Votes do
     end)
   end
 
+  def create_poll(attrs) do
+    %Poll{}
+    |> Poll.changeset(attrs)
+    |> Repo.insert()
+  end
+
 end
