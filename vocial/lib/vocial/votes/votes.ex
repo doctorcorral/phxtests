@@ -43,4 +43,10 @@ defmodule Vocial.Votes do
     end
   end
 
+  def create_option(attrs) do
+    %Option{}
+    |> Option.changeset(attrs)
+    |> Repo.insert()
+  end
+
 end
