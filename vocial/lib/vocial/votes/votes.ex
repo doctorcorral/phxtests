@@ -31,4 +31,16 @@ defmodule Vocial.Votes do
     |> Repo.insert()
   end
 
+  def create_options(options, poll) do
+    results = Enum.map(options, fn option ->
+      create_option(%{title: option, poll_id: poll_id})
+    end)
+
+    if Enum.any?(results, fn {status, _} -> status == :error end) do
+      {:error, "Failed to create an option :c"}
+    else
+      {:ok, results}
+    end
+  end
+
 end
