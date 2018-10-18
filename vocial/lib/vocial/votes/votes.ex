@@ -33,7 +33,7 @@ defmodule Vocial.Votes do
 
   def create_options(options, poll) do
     results = Enum.map(options, fn option ->
-      create_option(%{title: option, poll_id: poll_id})
+      create_option(%{title: option, poll_id: poll.id})
     end)
 
     if Enum.any?(results, fn {status, _} -> status == :error end) do
