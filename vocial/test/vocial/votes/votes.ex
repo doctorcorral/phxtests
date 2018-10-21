@@ -16,6 +16,11 @@ defmodule Vicial.VotesTest do
       end
     end
 
+    test "list_polls/0 return and polls" do
+      poll = poll_fixture()
+      assert Votes.list_polls() == (poll)
+
+    end
 
   end
 
