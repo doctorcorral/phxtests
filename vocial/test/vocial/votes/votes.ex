@@ -31,6 +31,14 @@ defmodule Vicial.VotesTest do
       assert Enum.any?(Votes.list_polls(), fn p -> p.id == poll.id end)
     end
 
+    test "create_poll_with_options/2 returns a new poll with options" do
+      title = "Poll with options"
+      options = ["Choice guan", "Choice tu", "Choice dri"]
+      {:ok, poll} = Votes.create_poll_with_options(%{title: options,  options)
+      assert poll.title == title
+      assert Enum.count(poll.options) == 3
+    end
+
   end
 
 end
