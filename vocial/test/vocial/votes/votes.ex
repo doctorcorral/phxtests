@@ -21,7 +21,7 @@ defmodule Vicial.VotesTest do
       assert Votes.list_polls() == [poll]
     end
 
-    test "new_poll/1 returns a new poll" do
+    test "create_poll/1 returns a new poll" do
       {ok, poll} = Votes.create_poll(@valid_attrs)
       assert Enum.any?(Votes.list_polls(), fn p -> p.id == poll.id end)
     end
