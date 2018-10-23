@@ -21,6 +21,11 @@ defmodule Vicial.VotesTest do
       assert Votes.list_polls() == [poll]
     end
 
+    test "new_poll/0 returns a blank changeset" do
+      changeset = Votes.new_poll()
+      assert changeset.__struct__ == Ecto.Changeset
+    end
+
     test "create_poll/1 returns a new poll" do
       {ok, poll} = Votes.create_poll(@valid_attrs)
       assert Enum.any?(Votes.list_polls(), fn p -> p.id == poll.id end)
